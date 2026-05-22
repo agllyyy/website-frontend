@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contacts.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <img src="img/logo.svg" alt="Логотип" class="logo">
+            
+            <!-- Кнопка бургера СНАЧАЛА (чтобы была справа от лого) -->
+            <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">новости</a></li>
+                    <li><a href="obraz_programs.html">образовательные<br>программы</a></li>
+                    <li><a href="kursi.html">подготовительные<br>курсы</a></li>
+                    <li><a href="contacts.html">контакты</a></li>
+                    <li><a href="price.html">стоимость<br>обучения</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="news-section">
+        <h1 class="main-title">Наши контакты</h1>
+        
+        <div class="contacts-wrapper">
+            <!-- Контейнер карты -->
+            <div class="map-frame">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.869306368496!2d37.59525907688424!3d55.79550727310007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b549ff5a7bad81%3A0xb6dafd9d8792709c!2z0KHRgtGA0LXQu9C10YbQutCw0Y8g0YPQuy4sIDIsINCc0L7RgdC60LLQsCwgMTI3MDE4!5e0!3m2!1sru!2sru!4v1777219909388!5m2!1sru!2sru" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                
+            </div>
+
+            <!-- Контактная информация -->
+            <div class="contacts-info">
+                <div class="contact-block">
+                    <h3>Адрес:</h3>
+                    <p>г. Москва, ул. Стрелецкая, д. 2с1</p>
+                    
+                    <h3>Режим работы приёмной комиссии:</h3>
+                    <p>Пн-Пт с 10:00 до 17:00</p>
+                </div>
+                
+                <div class="contact-block">
+                    <h3>Телефон:</h3>
+                    <p><a href="tel:+73422223344">+7 (342) 222-33-44</a></p>
+                    
+                    <h3>Email:</h3>
+                    <p><a href="mailto:priem@stroganov-kddi.ru">priem@stroganov-kddi.ru</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<script src="script.js"></script>
+</body>
+</html>

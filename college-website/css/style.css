@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'Gropled';
+    src: url('fonts/Gropled.woff2') format('woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Regular.woff2') format('woff2');
+    font-weight: 400;
+}
+
+
+/* Обнуляем отступы браузера */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Красная шапка */
+.header {
+    background-color: #E53A45;
+    width: 100%;       
+    height: 100px;
+    padding: 8px;
+    position: relative;
+    z-index: 10;
+}
+
+.header-content {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding-right: 60px;
+}
+
+.logo {
+    width: 210px; height: 80px;
+}
+
+/* Делаем список меню в ряд */
+.menu {
+    display: flex;
+    align-items: center;    /* Выравнивает все пункты по вертикали в одну линию */
+    justify-content: center; /* Ставит всё меню по центру шапки */
+    gap: 95px;             
+    list-style: none;       
+}
+
+.menu li {
+    /* Ограничиваем ширину, чтобы текст сам переносился в 2 строки */
+    max-width: 200px; 
+}
+
+.menu a {
+    display: block;         /* Чтобы текст мог занимать несколько строк */
+    text-align: center;     /* ЦЕНТРИРУЕТ текст в две строки */
+    
+    /* Твои параметры из прошлых шагов */
+    color: #F6F6F6;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.1;       /* Делает строки в названии плотнее друг к другу */
+    text-transform: lowercase;
+}
+
+.menu a:hover {
+    opacity: 0.8; /* Легкое затухание при наведении */
+}
+
+
+/* === ОБЩИЙ ЗАГОЛОВОК СТРАНИЦЫ === */
+.main-title {
+    font-family: 'Gropled', sans-serif;
+    font-weight: 600; 
+    font-size: 60px;
+    text-align: center;
+    color: #272727;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    width: 100%; /* Гарантирует, что заголовок занимает всю ширину */
+}
+
+
+/* === БУРГЕР-КНОПКА (скрыта на десктопе) === */
+.burger-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 20;
+}
+
+.burger-btn span {
+    width: 25px;
+    height: 3px;
+    background: #F6F6F6;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Анимация крестика при открытии */
+.burger-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.burger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
+
+
+/* === МОБИЛЬНАЯ АДАПТАЦИЯ*/
+@media (max-width: 768px) {
+    .main-title {
+        margin-top: 20px !important; /* Было 60px, теперь компактно */
+        font-size: 36px;             /* Чуть меньше шрифт для экрана */
+    }
+    .date {
+        margin-top: 5px !important;
+        margin-bottom: 25px !important;
+    }
+
+
+    /* 1. БУРГЕР СПРАВА */
+    .header-content {
+        position: relative;
+        padding: 0 15px;
+        justify-content: flex-start;
+    }
+    .burger-btn {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex !important;
+    }
+    .logo {
+        margin-left: 0 !important; /* Убираем десктопный отступ */
+    }
+
+
+    /* 2. ВЫЕЗЖАЮЩЕЕ МЕНЮ */
+    .menu {
+        position: fixed;
+        top: 100px; /* Высота шапки */
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 100px);
+        background: #E53A45;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        gap: 30px;
+        transition: left 0.3s ease;
+        z-index: 99;
+    }
+    .menu.active { left: 0; }
+    .menu a { font-size: 22px; line-height: 1.3; }
+
+    /* 3. ЦЕНТРИРОВАНИЕ КАРТОЧЕК НОВОСТЕЙ */
+    .slider-wrapper {
+        padding: 0 10px !important; /* Минимальные отступы по краям */
+    }
+    .slider-track {
+        align-items: center; /* Центрирует карточку по вертикали, если она меньше обёртки */
+    }
+    .news-card {
+        flex: 0 0 calc(100% - 20px) !important; /* Занимает почти всю ширину */
+        max-width: 380px; /* Ограничиваем, чтобы на больших телефонах не растягивалась */
+        margin: 0 auto !important; /* Точное горизонтальное центрирование */
+    }
+
+    /* Сбрасываем сетку в одну колонку */
+    .grid-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 0 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Убираем фиксированную ширину у элементов внутри, если она есть */
+    .grid-container > div {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Убираем пустые элементы, если скрипт их зачем-то генерит */
+    .grid-container > div:empty {
+        display: none !important;
+    }
+
+
+    /* Прячем все элементы декора по классам */
+    .berry, 
+    .berry-1, 
+    .berry-2, 
+    .berry-3, 
+    .bg-berry, 
+    [class*="berry"] { 
+        display: none !important; 
+    }
+}

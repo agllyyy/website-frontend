@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Колледж-Новости</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/news.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <img src="img/logo.svg" alt="Логотип" class="logo">
+            
+            <!-- Кнопка бургера СНАЧАЛА (чтобы была справа от лого) -->
+            <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">новости</a></li>
+                    <li><a href="obraz_programs.html">образовательные<br>программы</a></li>
+                    <li><a href="kursi.html">подготовительные<br>курсы</a></li>
+                    <li><a href="contacts.html">контакты</a></li>
+                    <li><a href="price.html">стоимость<br>обучения</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main class="news-section">
+    <!-- ягодки -->
+    <div class="berry berry-1"><img src="img/berry.svg" alt="Декор"></div>
+    
+    <h1 class="main-title">Новости</h1>
+    <p class="date">на <span id="current-date"></span></p>
+    
+    <!-- Обёртка слайдера -->
+    <div class="slider-wrapper">
+        <div class="slider-track" id="newsTrack">
+            <article class="news-card">
+                <img src="img/news/vistavka.png" alt="Выставка">
+                <h2 class="news-card-title">Открытие выставки «ОТ ВЕСНЫ ДО ВЕСНЫ»</h2>
+                <button class="btn-more" onclick="openNews('vistavka')">подробнее</button>
+            </article>
+
+            <article class="news-card">
+                <img src="img/news/mk.png" alt="мастер-классы">
+                <h2 class="news-card-title">Наши мастер-классы</h2>
+                <button class="btn-more" onclick="openNews('mk')">подробнее</button>
+            </article>
+
+            <article class="news-card">
+                <img src="img/news/multiplicatori.png" alt="мультипликаторы">
+                <h2 class="news-card-title">Достижения будущих мультипликаторов</h2>
+                <button class="btn-more" onclick="openNews('multiplicatori')">подробнее</button>
+            </article>
+
+            <article class="news-card">
+                <img src="img/news/iconi.png" alt="иконы">
+                <h2 class="news-card-title">Иконы студентов переданы в храмы</h2>
+                <button class="btn-more" onclick="openNews('iconi')">подробнее</button>
+            </article>
+
+            <article class="news-card">
+                <img src="img/news/maslenica.png" alt="масленица">
+                <h2 class="news-card-title">Масленица в колледже</h2>
+                <button class="btn-more" onclick="openNews('maslenica')">подробнее</button>
+            </article>
+
+            <article class="news-card">
+                <img src="img/news/moushn.png" alt="Выставка">
+                <h2 class="news-card-title">Открытие выставки «Моушн-дизайн»</h2>
+                <button class="btn-more" onclick="openNews('moushn')">подробнее</button>
+            </article>
+
+            <article class="news-card">
+                <img src="img/news/nov7.jpg" alt="День открытых дверей!">
+                <h2 class="news-card-title">День открытых дверей!</h2>
+                <button class="btn-more" onclick="openNews('nov7')">подробнее</button>
+            </article>
+
+            <article class="news-card">
+                <img src="img/news/nov83.jpg" alt="Выставка работ студентов">
+                <h2 class="news-card-title">Выставка работ студентов</h2>
+                <button class="btn-more" onclick="openNews('nov8')">подробнее</button>
+            </article>
+
+            <article class="news-card">
+                <img src="img/news/nov93.jpg" alt="Культурная жизнь студентов">
+                <h2 class="news-card-title">Культурная жизнь студентов</h2>
+                <button class="btn-more" onclick="openNews('nov9')">подробнее</button>
+            </article>
+
+            <article class="news-card">
+                <img src="img/news/nov101.jpg" alt="худ.акция">
+                <h2 class="news-card-title">Художественная акция</h2>
+                <button class="btn-more" onclick="openNews('nov10')">подробнее</button>
+            </article>
+        </div>
+
+        <!-- Кнопки вынесены отдельно -->
+        <button class="slider-btn prev-btn" onclick="moveNews(-1)">❮</button>
+        <button class="slider-btn next-btn" onclick="moveNews(1)">❯</button>
+    </div>
+    
+    <div class="berry berry-2"><img src="img/berry2.svg" alt="Декор"></div>
+    <div class="berry berry-3"><img src="img/berry3.svg" alt="Декор"></div>
+</main>
+
+
+<!-- Модальное окно -->
+<dialog id="newsModal" class="modal">
+    <div class="modal-wrapper">
+        <!-- Кнопка закрытия окна -->
+        <button class="close-x" onclick="this.closest('dialog').close()">×</button>
+        
+        <div class="modal-content">
+            <h2 id="modalTitle" class="modal-headline"></h2>
+            <div id="modalText" class="modal-text"></div>
+            
+            <!-- Обертка для слайдера: теперь стрелки внутри нее -->
+            <div class="slider-container">
+                <button class="nav-arrow prev" onclick="moveSlide(-1)">
+                    <img src="img/news/left.svg" alt="назад">
+                </button>
+                
+                <div id="modalPhotos" class="slide-photos">
+                    <!-- Сюда JS вставит картинки -->
+                </div>
+
+                <button class="nav-arrow next" onclick="moveSlide(1)">
+                    <img src="img/news/right.svg" alt="вперед">
+                </button>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<script src="script.js"></script>
+
+</body>
+</html>

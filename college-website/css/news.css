@@ -1,0 +1,251 @@
+/* === ЗАГОЛОВКИ И ДАТА === */
+.main-title {
+    font-family: 'Gropled', sans-serif;
+    font-weight: 600; 
+    font-size: 60px;
+    text-align: center;
+    color: #272727;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.date {
+    font-weight: 400;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: #272727;
+    text-align: center;
+    line-height: 1;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+/* === СЕКЦИЯ НОВОСТЕЙ === */
+.news-section {
+    position: relative; 
+    overflow: hidden;
+    padding-bottom: 300px;
+}
+
+/* === СЛАЙДЕР === */
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    transition: transform 0.4s ease;
+}
+
+/* === КАРТОЧКА НОВОСТИ === */
+.news-card {
+    flex: 0 0 335px;
+    box-sizing: border-box;
+    background: #D9D9D9;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 489px;
+    padding: 25px 22px 5px 22px; 
+}
+
+/* Картинка (объединено + скругление) */
+.news-card img {
+    width: 100%;
+    height: 240px; /* Оставил актуальную высоту по скриншоту */
+    border-radius: 30px;
+    object-fit: cover; 
+    display: block;
+    margin-bottom: 25px;
+}
+
+/* Заголовок карточки (объединено) */
+.news-card-title {
+    flex: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; 
+    font-size: 24px;
+    line-height: 1.1;
+    color: #272727;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    margin: 0;
+}
+
+/* Кнопка (объединено) */
+.btn-more {
+    width: 268px;
+    height: 70px;
+    background-color: #F6F6F6;
+    border: none;
+    border-radius: 25px;
+    color: #272727;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 21px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.btn-more:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.btn-more:active {
+    transform: translateY(0px); 
+}
+
+/* === КНОПКИ СЛАЙДЕРА === */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: #fff;
+    border: 2px solid #E53A45;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.slider-btn:hover {
+    background: #E53A45;
+    color: #fff;
+}
+
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+.slider-btn:disabled { opacity: 0.3; cursor: default; }
+
+/* === МОДАЛЬНОЕ ОКНО === */
+.modal {
+    border: none;
+    padding: 0;
+    width: 1000px;
+    max-width: 95vw;
+    background: transparent;
+    overflow: visible;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.modal-wrapper {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background: #FFFFFF;
+    padding: 60px 50px; /* Объединённый отступ */
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.close-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    color: #000;
+}
+
+.modal-headline {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.prev { left: -70px; }
+.next { right: -70px; }
+
+.nav-arrow img {
+    width: 20px;
+    height: auto;
+    display: block;
+}
+
+.nav-arrow:hover { opacity: 0.6; }
+
+.slide-photos {
+    display: flex;
+    gap: 15px;
+    overflow: hidden;
+    justify-content: center;
+    width: 100%;
+}
+
+.slide-photos img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.modal-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* === ДЕКОР (ЯГОДКИ) === */
+.berry {
+    position: absolute;
+    z-index: -1;
+}
+.berry-1 { width: 543px; height: auto; top: 60px; left: -5px; transform: rotate(0deg); transform-origin: center; }
+.berry-2 { width: 720px; height: 614px; bottom: 450px; right: -5px; transform: rotate(0deg); }
+.berry-3 { width: 430px; bottom: 90px; left: 950px; transform: rotate(0deg); }
+.berry img { width: 100%; height: auto; display: block; }

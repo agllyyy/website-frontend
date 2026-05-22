@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Образовательные программы</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/obraz_programs.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <img src="img/logo.svg" alt="Логотип" class="logo">
+            
+            <!-- Кнопка бургера СНАЧАЛА (чтобы была справа от лого) -->
+            <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">новости</a></li>
+                    <li><a href="obraz_programs.html">образовательные<br>программы</a></li>
+                    <li><a href="kursi.html">подготовительные<br>курсы</a></li>
+                    <li><a href="contacts.html">контакты</a></li>
+                    <li><a href="price.html">стоимость<br>обучения</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main class="news-section">
+    <h1 class="main-title">Образовательные программы</h1>
+    <div class="container">
+        <div id="disciplines-grid" class="grid-container"></div>
+    </div>
+    
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/kursi.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <img src="img/logo.svg" alt="Логотип" class="logo">
+            
+            <!-- Кнопка бургера СНАЧАЛА (чтобы была справа от лого) -->
+            <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">новости</a></li>
+                    <li><a href="obraz_programs.html">образовательные<br>программы</a></li>
+                    <li><a href="kursi.html">подготовительные<br>курсы</a></li>
+                    <li><a href="contacts.html">контакты</a></li>
+                    <li><a href="price.html">стоимость<br>обучения</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main class="news-section">
+
+    <div class="container">
+        <h1 class="main-title">Оставьте заявку на подготовительный курс</h1>
+
+
+        <section class="form-section">
+            <div class="form-container">
+                <p>Мы свяжемся с вами для уточнения деталей</p>
+
+                <form id="courseForm" novalidate>
+                    <div class="form-group">
+                        <input type="text" name="applicantName" placeholder="ФИО (абитуриента)" required>
+                        <input type="text" name="artSchool" placeholder="Название художественной школы">
+                        <input type="number" name="age" placeholder="Возраст поступающего" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="parentName" placeholder="ФИО (родителя/законного представителя)">
+                        <input type="tel" name="phone" placeholder="Номер телефона" required>
+                        <input type="email" name="email" placeholder="Почта" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-select" data-name="direction">
+                            <div class="select-trigger">Направление подготовки</div>
+                            <input type="hidden" name="direction" value="">
+                            <div class="select-options">
+                                <div class="option">курс «живописи»</div>
+                                <div class="option">курс «графики»</div>
+                                <div class="option">курс «дизайна»</div>
+                                <div class="option">курс «ДПИ и НП»</div>
+                                <div class="option">курс «скульптура»</div> 
+                            </div>
+                        </div>
+
+                        <div class="custom-select" data-name="format">
+                            <div class="select-trigger">Форма обучения</div>
+                            <input type="hidden" name="format" value="">
+                            <div class="select-options">
+                                <div class="option">Очная</div>
+                                <div class="option">Заочная</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-select" data-name="source">
+                            <div class="select-trigger">Откуда узнали о нас</div>
+                            <input type="hidden" name="source" value="">
+                            <div class="select-options">
+                                <div class="option">от художественной школы</div>
+                                <div class="option">от студентов</div>
+                                <div class="option">из соцсетей</div>
+                                <div class="option">из рекламы</div>
+                            </div>
+                        </div>
+
+                        <textarea name="comment" placeholder="Комментарий"></textarea>
+                    </div>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="consent" required>
+                        <span>Согласие на обработку персональных данных</span>
+                    </label>
+
+                    <button type="submit" class="btn-submit">отправить заявку</button>
+                </form>
+
+                <!-- Блок для вывода результата -->
+                <div id="formResult" class="form-result" style="display: none;"></div>
+            </div>
+        </section>
+    
+    <div class="bg-berry berry-courses-2">
+        <img src="img/berry2.svg" alt="Декор">
+    </div>
+    <div class="bg-berry berry-courses-3">
+        <img src="img/berry3.svg" alt="Декор">
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

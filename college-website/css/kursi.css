@@ -1,0 +1,250 @@
+/* === ОБЩИЕ НАСТРОЙКИ СЕКЦИИ === */
+.form-section {
+    max-width: 650px;
+    margin: 0 auto;
+    padding-bottom: 90px;
+    position: relative;
+    z-index: 5; /* Поднимаем всю форму выше декораций */
+}
+
+.form-container p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #272727;
+    margin-bottom: 60px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* === ГРУППЫ ПОЛЕЙ (ВАЖНО ДЛЯ ВЫПАДАШЕК) === */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: #333;
+    
+    position: relative;
+    overflow: visible !important; 
+    z-index: 1;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* === ПОЛЯ ВВОДА === */
+input, textarea {
+    width: 100%;
+    height: 55px;
+    padding: 0 20px;
+    border: 1px solid #272727;
+    background-color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    
+    /* 🔑 КРИТИЧНО: поднимаем поля над фоном, но под выпадающим списком */
+    position: relative;
+    z-index: 2;
+}
+
+::placeholder {
+    color: #A0A0A0;
+}
+
+textarea {
+    height: 150px;
+    padding-top: 15px;
+    resize: none;
+}
+
+/* === КАСТОМНЫЙ ВЫБОР (ВЫПАДАШКИ) === */
+.custom-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+    z-index: 10; /* Выше обычных инпутов */
+}
+
+.select-trigger {
+    width: 100%;
+    height: 55px;
+    border: 1px solid #272727;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    color: #A0A0A0;
+    background-image: url('../img/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 30px;
+    box-sizing: border-box;
+    
+    /* 🔑 КРИТИЧНО: solid background + relative positioning */
+    position: relative;
+    z-index: 2;
+}
+
+.select-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    width: 50%;
+    background: #fff;
+    border: 1px solid #272727;
+    border-top: none;
+    display: none;
+    z-index: 9999 !important; 
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15); /* Тень для визуального отделения */
+    max-height: none;
+    overflow-y: auto;
+}
+
+.custom-select.active {
+    z-index: 100;
+    position: relative;
+}
+
+.custom-select.active .select-options {
+    display: block !important;
+}
+
+.form-group:has(.custom-select.active) {
+    z-index: 100;
+}
+
+/* На всякий случай убедимся, что сам активный селект тоже в топе */
+.custom-select.active {
+    z-index: 999;
+}
+
+.option {
+    padding: 12px 20px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    color: #272727;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.option:hover {
+    background-color: #E0E0E0;
+}
+
+/* === ЧЕКБОКС И КНОПКА === */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+.checkbox-container input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    width: 300px;
+    height: 60px;
+    background-color: #E53A45;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 30px auto 0;
+    transition: background 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-submit:hover {
+    background-color: #272727;
+}
+
+/* === ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ === */
+.berry-courses-2 {
+    position: absolute;
+    top: 250px;
+    left: 850px;
+    transform: rotate(-20deg);
+    z-index: -1; /* Уводим на задний план */
+}
+
+.berry-courses-3 {
+    position: absolute;
+    top: 100px;
+    left: 450px;
+    transform: rotate(60deg);
+    z-index: -1;
+}
+
+/* === БЛОК РЕЗУЛЬТАТА ОТПРАВКИ === */
+.form-result { 
+    margin: 20px auto 0; 
+    padding: 20px;       /* Уменьшили внутренний жир со всех сторон до 20px */
+    
+    background: #e53a4511;
+    border-radius: 16px;
+    border: 2px solid #E53A45;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* Убираем лишний отступ у последнего параграфа в данных */
+.submitted-data p:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.success-message h3 {
+    color: #E53A45;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;    /* <--- Добавит места сверху над заголовком */
+    margin-bottom: 15px; /* <--- Добавит места между заголовком и данными */
+}
+
+.submitted-data {
+    margin-top: 5px;
+    text-align: left;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.submitted-data p {
+    margin: 8px 0;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 4px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
